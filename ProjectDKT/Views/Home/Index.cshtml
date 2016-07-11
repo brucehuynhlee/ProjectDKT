@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Cầu vận chuyển, vận chuyển hàng hóa";
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        html {
+            background: none repeat scroll center top #FFFFFF;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery");
+</head>
+<body>
+    <!-- Begin header-->
+    <div class="header">
+        <div class="fix-temp">
+             <div class="hr-logo">
+                 <a href="#"><img src="~/Content/images/logo.gif.png"></a>
+             </div>
+             <div class="text-header">
+                 <p class="title-header">Công ty TNHH Mạnh Tưởng</p>
+                 <p class="content-header">
+                     Địa chỉ: Số 1 Bãi xe đầu Đường cao tốc Pháp Vân, Quận Hoàng Mai, Hà Nội<br />
+                     Điện thoại: 04.3681.5566 - Fax: 04.3681 4358 
+                 </p>
+             </div>
+             <div class="clear"></div>
+        </div>
+
+    </div>
+    <!--End Header-->
+
+
+    <!--Begin tabMenu-->
+    <div id="tabMenu">
+         <div class="fix-temp">
+             <div class="tab-left">
+                 <ul>
+                    <li><a href="#" class="css"><span>Trang chủ</span></a></li>
+                    <li><a href="#" class="css"><span>Giới thiệu</span></a></li>
+                    <li>
+                        <ul>
+                            <li>
+                                 <a href="#" class="css"><span>Dịch vụ</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="css"><span>Tin tức</span></a>
+                        <div id="submenu" style="display:none">
+                            <a class="sub" href="#">Tin hoạt động công ty</a>
+                            <a class="sub" href="#">Tin tức vận tải</a>
+                        </div>
+                       
+                     </li>
+                    <li><a href="#" class="css"><span>Thư viện ảnh</span></a></li>
+                    <li><a href="#" class="css"><span>Liên hệ</span></a></li>
+                 </ul>
+             </div>
+
+             <div class="tab-right">
+                 <form class="form-search">
+                     <input type="text" placeholder="Nhập từ cần tìm" class="textbox"/>
+                     <input type="submit" class="submit" />
+
+                 </form>
+
+             </div>
+             <div class="clear"></div>
+         </div>
+    </div>
+    <!--End TabMenu-->
+
+
+    <!--Begin Banner-->
+    <div class="banner">
+        <div class="fix-temp">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+                    <img src="~/Content/images/slider/cauvanchuyen-2014041720523965.jpg" data-thumb="images/toystory.jpg" alt="" />
+                    <img src="~/Content/images/slider/vanchuyen-2014041720525877.jpg" data-thumb="images/up.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Banner-->
+
+
+    <!--Begin Content-->
+    <div class="content">
+
+    </div>
+    <!--End Content-->
+
+
+    <!--Begin Footer-->
+    <div class="footer">
+
+    </div>
+    <!--End Foooter-->
+   
+    <script type="text/javascript">
+
+	$(window).load(function() {
+
+	$('#slider').nivoSlider({
+
+	    effect: 'random',                 // Specify sets like: 'fold,fade,sliceDown' 
+	    slices: 15,                       // For slice animations 
+	    boxCols: 8,                       // For box animations 
+	    boxRows: 4,                       // For box animations 
+	    animSpeed: 500,                   // Slide transition speed 
+	    pauseTime: 3000,                  // How long each slide will show 
+	    startSlide: 0,                    // Set starting Slide (0 index) 
+	    directionNav: true,               // Next & Prev navigation 
+	    controlNav: true,                 // 1,2,3... navigation 
+	    controlNavThumbs: false,          // Use thumbnails for Control Nav 
+	    pauseOnHover: true,               // Stop animation while hovering 
+	    manualAdvance: false,             // Force manual transitions 
+	    prevText: 'Prev',                 // Prev directionNav text 
+	    nextText: 'Next',                 // Next directionNav text 
+	    randomStart: false,               // Start on a random slide 
+	    beforeChange: function () { },       // Triggers before a slide transition 
+	    afterChange: function () { },        // Triggers after a slide transition 
+	    slideshowEnd: function () { },       // Triggers after all slides have been shown 
+	    lastSlide: function () { },          // Triggers when last slide is shown 
+	    afterLoad: function () { }           // Triggers when slider has loaded 
+	});
+	});
+    </script>
+ 
+        
+        
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+.header{
+  background : #f6f6f6 ;
+  position : relative ;
+  top : -70px ;
+
+}
+
+.fix-temp{
+    width : 1000px ;
+    margin : 0px auto ;
+
+
+
+}
+
+.hr-logo{
+
+    float : left ;
+
+}
+
+.title-header{
+    color : #000a66 ;
+    font-size : 16px ;
+    font-weight : bold ;
+    padding : 5px 5px 0px 5px ;
+
+}
+
+.text-header{
+   
+}
+
+.text-header .title-header{
+
+
+}
+
+.text-header .content-header{
+  
+
+}
+
+.clear{
+    clear : both ;
+}
+
+
+#tabMenu{
+    height : 47px ;
+    position : relative ;
+    top : -80px ;
+    background : url(images/hr-menu.gif) repeat-x right top ;
+    
+
+}
+#tabMenu .tab-left{
+    float : left ;
+
+}
+#tabMenu .tab-right{
+    float : right ;
+
+}
+
+#tabMenu .form-search{
+    float : right ;
+
+}
+
+#tabMenu .form-search .textbox{
+    float : left ;
+
+}
+
+
+#tabMenu .form-search .submit{
+    float : right ;
+
+}
+
+
+#tabMenu ul{
+    list-style  : none ;
+    padding-left : 0px ;
+}
+#tabMenu ul li {
+
+    float : left ;
+    font-weight : bold ;
+}
+
+#tabMenu a {
+    text-decoration : none
+
+}
+
+#tabMenu a.css span{
+    display : block ;
+    padding : 17px 32px 15px ;
+    
+
+}
+
+
+#tabMenu .tab-right {
+
+
+}
+
+.banner{
+    background : url(images/hr-bg.gif) left top scroll repeat-x;
+    height : 400px ;
+    padding : 5px 0px ;
+    position : relative ;
+    top : -80px;
+
+}
+
+.banner .slider-swapper{
+    text-align : center ;
+    overflow : hidden ;
+
+}
