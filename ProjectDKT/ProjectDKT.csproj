@@ -182,6 +182,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\cars\25_170\big_page0003jpg-20140814085218921.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0004jpg-20140814085229156.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0005jpg-20140814085240781.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0006jpg-20140814085248687.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0007jpg-20140814085258125.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0008jpg-20140814085307484.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0009jpg-201408140853160.jpg" />
+    <Content Include="Content\images\cars\25_170\big_page0010jpg-20140814085645468.jpg" />
     <Content Include="Content\images\cars\25_170\resize_page0003jpg-20140814085218921.jpg" />
     <Content Include="Content\images\cars\25_170\resize_page0004jpg-20140814085229156.jpg" />
     <Content Include="Content\images\cars\25_170\resize_page0005jpg-20140814085240781.jpg" />
@@ -214,6 +222,7 @@
     <Content Include="Content\images\cars\XeTai\resize_anh31jpg-20140814211507953.JPG" />
     <Content Include="Content\images\cars\XeTai\resize_anh3jpg-20140814211603546.JPG" />
     <Content Include="Content\images\cars\XeTai\resize_anh5jpg-20140814211535500.JPG" />
+    <Content Include="Content\images\hr-bg.gif" />
     <Content Include="Content\images\hr-menu.gif" />
     <Content Include="Content\images\icon.png" />
     <Content Include="Content\images\logo.gif.png" />
@@ -225,15 +234,28 @@
     <Content Include="Content\images\service\resize_van-chuyen-xe-chuyen-dung-xe-phoc-somy-may-cong-truong-may-xuc-may-ui-hang--14041620271259174.jpg" />
     <Content Include="Content\images\slider\cauvanchuyen-2014041720523965.jpg" />
     <Content Include="Content\images\slider\vanchuyen-2014041720525877.jpg" />
+    <Content Include="Content\lightbox\css\lightbox.css" />
+    <Content Include="Content\lightbox\css\lightbox.min.css" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.js" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Content\lightbox\js\lightbox.js" />
+    <Content Include="Content\lightbox\js\lightbox.min.js" />
     <Content Include="Content\MainStyle.css" />
-    <Content Include="Content\nivo-slider.css" />
+    <Content Include="Content\nivoslider\arrows.png" />
+    <Content Include="Content\nivoslider\bullets.png" />
+    <Content Include="Content\nivoslider\default.css" />
+    <Content Include="Content\nivoslider\loading.gif" />
+    <Content Include="Content\nivoslider\nivo-slider.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.min.map" />
+    <Content Include="Content\lightbox\js\lightbox.min.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -283,7 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\default\" />
+    <Folder Include="Content\lightbox\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

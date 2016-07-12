@@ -27,8 +27,9 @@ namespace ProjectDKT
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/MainStyle.css",
-                       "~/Content/default/default.css",
-                      "~/Content/nivo-slider.css",
+                       "~/Content/nivoslider/default.css",
+                    
+                      "~/Content/nivoslider/nivo-slider.css",
                       "~/Content/site.css"));
         }
     }
