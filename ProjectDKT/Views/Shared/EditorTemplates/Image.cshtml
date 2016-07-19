@@ -1,0 +1,17 @@
+﻿@model string
+@{ 
+    
+    var filename = Path.GetFileName(Model);
+    var path = ("~/uploads/") + filename;
+
+}
+<img id="output" src="@Url.Content(path)" class="img img-thumbnail" style="display:block"/>
+<input type="file" name="upload" class="glyphicon-file" accept="image/*" onchange="loadFile(event)" /> 
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+
+  };
+</script>

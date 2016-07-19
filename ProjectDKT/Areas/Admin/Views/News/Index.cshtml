@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjectDKT.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Typenew.NameType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Typenew.NameType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,38 @@
+﻿@model bool?
+
+
+@{
+    // make use of nullable class attribute values
+    var yesSelected = Model.HasValue && Model.Value ? "active" : null;
+    var noSelected = (Model.HasValue && !Model.Value)
+    || (!Model.HasValue && ViewData.ModelMetadata.IsNullableValueType)
+    ? "active": null;
+
+    var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+}
+
+
+@Html.HiddenFor(model => model)
+
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info @yesSelected ">
+        <input type="radio" class="bool-@htmlField" onchange="changeTrue()"/> Yes
+    </label>
+    <label class="btn btn-info @noSelected">
+        <input type="radio" class="bool-@htmlField" onchange="changeFalse()"/> No
+    </label>
+</div>
+
+<script>
+    var selects = document.getElementById("@htmlField");
+    var changeTrue = function(){
+        selects.value = true ;
+    } 
+    var changeFalse = function(){
+        selects.value = false ;
+    } 
+
+</script>
+
+
+

@@ -1,0 +1,64 @@
+﻿@model ProjectDKT.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            @Html.DisplayNameFor(model => model.Title)
+        </div>
+        <div class="panel panel-body">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+    </div>
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            @Html.DisplayNameFor(model => model.Summary)
+        </div>
+        <div class="panel panel-body">
+            @Html.DisplayFor(model => model.Summary)
+        </div>
+    </div>
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            Info
+        </div>
+
+        <div class="panel-body">
+            <div class="pull-left" style="margin-right : 10px">
+                @Html.DisplayFor(model => model.UrlImage)
+            </div>
+            <div class="pull-left">
+                <div>
+                    @Html.DisplayNameFor(model => model.UrlLink) : @Html.DisplayFor(model => model.UrlLink)
+                </div>
+                <div>
+                    Date upload : @Html.DisplayFor(model => model.DateUpload)
+                </div>
+                <div>
+                    Is Active : @Html.DisplayFor(model => model.IsActive)
+                </div>
+                <div>
+                    Type of News : @Html.DisplayFor(model => model.Typenew.NameType)
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

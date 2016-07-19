@@ -1,430 +1,281 @@
 ﻿@{
     ViewBag.Title = "Cầu vận chuyển, vận chuyển hàng hóa";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+@using ProjectDKT.Areas.Admin.Helpers
 
-<!DOCTYPE html>
-<html>
-<head>
-    <style type="text/css">
-        html {
-            background: none repeat scroll center top #FFFFFF;
-        }
-    </style>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="~/Content/lightbox/css/lightbox.min.css">
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/jquery")
-</head>
-<body>
-    <!-- Begin header-->
-    <div class="header">
-        <div class="fix-temp">
-            <div class="hr-logo">
-                <a href="#"><img src="~/Content/images/logo.gif.png"></a>
-            </div>
-            <div class="text-header">
-                <p class="title-header">Công ty TNHH Mạnh Tưởng</p>
-                <p class="content-header">
-                    Địa chỉ: Số 1 Bãi xe đầu Đường cao tốc Pháp Vân, Quận Hoàng Mai, Hà Nội<br />
-                    Điện thoại: 04.3681.5566 - Fax: 04.3681 4358
-                </p>
-            </div>
-            <div class="clear"></div>
-        </div>
 
-    </div>
-    <!--End Header-->
-    <!--Begin tabMenu-->
-    <div id="tabMenu">
-        <div class="fix-temp">
-            <div class="tab-left">
-                <ul>
-                    <li><a href="#" class="css"><span>Trang chủ</span></a></li>
-                    <li><a href="#" class="css"><span>Giới thiệu</span></a></li>
-                    <li >
-                       <a href="#" class="css"><span>Dịch vụ</span></a>
-                    </li>
-                    <li id="news-dropdown">
-                        <a href="#" class="css" id="dropdown"><span>Tin tức</span></a>
-                        <div id="submenu" style="display:none">
-                            <a class="sub" href="#">Tin hoạt động công ty</a>
-                            <a class="sub" href="#">Tin tức vận tải</a>
-                        </div>
-
-                    </li>
-                    <li><a href="#" class="css"><span>Thư viện ảnh</span></a></li>
-                    <li><a href="#" class="css"><span>Liên hệ</span></a></li>
-                </ul>
-            </div>
-
-            <div class="tab-right">
-                <form class="form-search">
-                    <input type="text" placeholder="Nhập từ cần tìm" class="textbox" />
-                    <input type="submit" value="" class="submit" />
-                </form>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <!--End TabMenu-->
-
-   
-
-    <!--Begin Banner-->
-    <div class="banner">
-        <div class="fix-temp">
-            <div class="slider-wrapper theme-default">
-                <div id="slider" class="nivoSlider">
-                    <img src="~/Content/images/slider/cauvanchuyen-2014041720523965.jpg" data-thumb="images/toystory.jpg" alt="" />
-                    <img src="~/Content/images/slider/vanchuyen-2014041720525877.jpg" data-thumb="images/up.jpg" alt="" />
-                </div>
+<!--Begin Banner-->
+<div class="banner">
+    <div class="fix-temp">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+                @foreach (var item in Model.Banner)
+                {
+                    string temp = ImageHelpers.GetPathImage(Path.GetFileName(@item.UrlImage));
+                    <img src="@Url.Content(@temp)"/>
+                }
             </div>
         </div>
     </div>
-    <!--End Banner-->
-    <!--Begin Content-->
-    <div class="content fix-temp">
-        <div class="title-service">
-            <span></span>
-            Dịch Vụ Nổi Bật
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Vận chuyển hàng hóa bằng xe tải bắc nam</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_cho-thue-cau-chuyen-dung-25-40-50-70-100-150-tan-cau-may-moc-thiet-bi-140416191931084.jpg" /></a></div>
-            <div class="info">
-                Vận chuyển hàng hóa Bắc Nam: Chuyên tuyến Hà Nội – Đà Nẵng –Hồ chí Minh
-                phục vụ 24/7. Cẩu Mạnh Tưởng sẵn sàng đáp ứng mọi yêu cầu vận chuyển hàng
-                hóa Bắc Nam của quý khách hàng từ Bắc vào Nam và tuyến ngược lại từ Nam ra Bắc.
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Vận chuyển ký gửi hàng hóa bằng xe tải bắc nam</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_cho-thue-xe-nang-chuyen-xuong-tu-xuong-den-xuong-140416204558799.jpg" /></a></div>
-            <div class="info">
-                Với đội ngũ lái xe có kinh nghiệm lâu năm, vận chuyển ký gửi hàng hóa bằng
-                xe tải Bắc Nam đường bộ theo tuyến. Công ty chúng tôi luôn đáp ứng nhanh các
-                yêu cầu của Quý Khách. Chúng tôi luôn chịu trách nhiệm bảo quản hàng hóa của Quý
-                Khách, giao hàng theo đúng thời gian và yêu cầu của Quý Khách Hàng.
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Vận chuyển hàng hóa bằng xe tải bắc nam</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_van-chuyen-bang-xe-cau-tu-hanh-tu-25-tan-5-tan-8-tan-10-tan-12-tan-15-tan-1404161903100159.jpg" /></a></div>
-            <div class="info">
-                Cước dịch vụ cẩu và vận chuyển xe 3,5 tấn: Liên hệ với chúng tôi để được tư vấn.
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Cho thuê cẩu chuyên dụng: 25 tấn, 40 tấn, 50 tấn, 70 tấn, 100 tấn, 150 tấn, cẩu máy móc thiết bị</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_van-chuyen-hang-hoa-bang-xe-tai-bac-nam-14041618390995117.jpg" /></a></div>
-            <div class="info">
-                Với những mặt hàng, thiết bị, máy móc cồng kềnh trọng lượng lớn, để chuyển lên
-                những vị trí ở trên cao như nóc chung cư, các tòa nhà cao tầng.
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Vận chuyển xe chuyên dụng xe phóc ,somy, máy công trường, máy xúc, máy ủi, hàng quá khổ, quá tải</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_van-chuyen-ky-gui-hang-hoa-bang-xe-tai-bac-nam-14041618370760890.jpg" /></a></div>
-            <div class="info">
-                Từ Hà nội, Đà nẵng đến tp Hồ Chí Minh. Với kinh nghiệm trong nghề chúng tôi đã nhận
-                vận chuyển thành công, nhanh chóng vàan toàn nhiều loại máy móc xây dựng siêu nặng
-                bằng các phương tiện kỹ thuật hiện đại và đội ngũ chuyên gia giàu kinh nghiệm, hiểu
-                biết sâu sắc địa hình vận chuyển từ đường bộ đến đường sông.
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="hot-service">
-            <div class="name"><a href="#">Cho thuê xe nâng, chuyên xưởng, đến xưởng</a></div>
-            <div class="img"><a href="#"><img src="~/Content/images/service/resize_van-chuyen-xe-chuyen-dung-xe-phoc-somy-may-cong-truong-may-xuc-may-ui-hang--14041620271259174.jpg" /></a></div>
-            <div class="info">
-                Dịch vụ cho thuê xe cẩu để nâng hạ hàng hóa của chúng tôi đáp ứng nâng hạ những nơi
-                có chiều cao lên đến 30m và kéo từ dộ sâu 30m lên, với ưu điểm đa dạng thiết bị nâng
-                hạ hàng hóa, Công ty CP vận tải Đường Việt có đội ngũ nhân viên kỹ thuật cao, có khả năng
-                tư vấn cho khách hàng thuận tiện nhất và giảm chi phí tối đa nhất.
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear10"></div>
-
-        <!--Begin Car 25-170-->
-        <div class="car-title">
-            <span></span>
-            Cẩu chuyên dụng từ 25 tấn đến 170 tấn
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0003jpg-20140814085218921.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0003jpg-20140814085218921.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0004jpg-20140814085229156.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0004jpg-20140814085229156.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0005jpg-20140814085240781.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0005jpg-20140814085240781.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0006jpg-20140814085248687.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0006jpg-20140814085248687.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0007jpg-20140814085258125.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0007jpg-20140814085258125.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0008jpg-20140814085307484.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0008jpg-20140814085307484.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0009jpg-201408140853160.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0009jpg-201408140853160.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="clear10"></div>
-        <!--End Car with weight-->
-        <!--Begin Car 2,5 - 15 -->
-        <div class="car-title">
-            <span></span>
-            Cẩu vận chuyển bằng xe tự hành từ 2,5 tấn 5 tấn, 8 tấn, 10 tấn, 12 tấn đến 15 tấn
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="clear10"></div>
-        <!--End Car with weight-->
-        <!--Begin Car Fooc Somi-->
-        <div class="car-title">
-            <span></span>
-            Vận chuyển bằng xe Fooc somi
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="clear10"></div>
-        <!--End Car with weight-->
-        <!--Begin Car BTN-->
-        <div class="car-title">
-            <span></span>
-            Vận chuyển bằng xe tải các tỉnh bắc trung nam
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="clear10"></div>
-        <!--End Car with weight-->
-        <!--Begin Car BTN-->
-        <div class="car-title">
-            <span></span>
-            Vận chuyển bằng xe tải các tỉnh bắc trung nam
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="hPhoto-thumbs">
-            <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
-                <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
-            </a>
-        </div>
-        <div class="clear"></div>
-        <!--End Car with weight-->
+</div>
+<!--End Banner-->
+<!--Begin Content-->
+<div class="fix-temp">
+    <div class="title-service">
+        <span></span>
+        Dịch Vụ Nổi Bật
     </div>
-    <!--End Content-->
-
-    <div class="line"></div>
-
-    <!--Begin Footer-->
-    <div class="footer fix-temp">
-        <div class="left">
-            <p class="bold">Bản quyền thuộc về Công ty TNHH Mạnh Tưởng</p>
-            <p class="bold">
-                Địa chỉ: <span>Số 1 Bãi xe đầu Đường cao tốc Pháp Vân, Quận Hoàng Mai, Hà Nội</span><br />
-                Địa chỉ nhà riêng: <span>Số 5 Ngõ 48, phố Chùa Hà, phường Quan Hoa, quận Cầu Giấy, Hà nội</span><br />
-                Điện thoại: <span>04.3681.5566</span> - Fax: <span>04.3681 4358 </span><br />
-                Email:<span> <a href="#"> caumanhtuong@gmail.com </a> <a href="#"> vantaimanhtuong@yahoo.com</a></span><br />
-                Website:<span><a href="#"> www.cauvanchuyen.com</a> - <a href="#">www.cauvanchuyen.net</a> - <a href="#">www.caumanhtuong.com</a> </span>
-            </p>
-        </div>
-        <div class="right">
-            <div class="sharing">
-                <a class="facebook" href="#"></a>
-                <a class="google" href="#"></a>
-                <a class="youtube" href="#"></a>
-                <a class="twitter" href="#"></a>
-                <a class="vging" href="#"></a>
+    @foreach (var item in Model.New)
+    {
+        <div class="hot-service">
+            <div class="name"><a href="#">@item.Title</a></div>
+            <div class="img"><a href="#"><img src="@Url.Content(ImageHelpers.GetPathImage(Path.GetFileName(@item.UrlImage)))" /></a></div>
+            <div class="info">
+                @item.Summary
             </div>
-            <div class="more">Đối tác thiết kế: <b>vGing</b></div>
+            <div class="clear"></div>
         </div>
+    }
+
+
+
+    <div class="clear10"></div>
+
+    <!--Begin Car 25-170-->
+    <div class="car-title">
+        <span></span>
+        Cẩu chuyên dụng từ 25 tấn đến 170 tấn
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0003jpg-20140814085218921.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0003jpg-20140814085218921.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0004jpg-20140814085229156.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0004jpg-20140814085229156.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0005jpg-20140814085240781.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0005jpg-20140814085240781.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0006jpg-20140814085248687.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0006jpg-20140814085248687.jpg" />
+        </a>
     </div>
     <div class="clear"></div>
-    <!--End Foooter-->
-   
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0007jpg-20140814085258125.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0007jpg-20140814085258125.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0008jpg-20140814085307484.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0008jpg-20140814085307484.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0009jpg-201408140853160.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0009jpg-201408140853160.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="clear10"></div>
+    <!--End Car with weight-->
+    <!--Begin Car 2,5 - 15 -->
+    <div class="car-title">
+        <span></span>
+        Cẩu vận chuyển bằng xe tự hành từ 2,5 tấn 5 tấn, 8 tấn, 10 tấn, 12 tấn đến 15 tấn
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="clear10"></div>
+    <!--End Car with weight-->
+    <!--Begin Car Fooc Somi-->
+    <div class="car-title">
+        <span></span>
+        Vận chuyển bằng xe Fooc somi
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="clear10"></div>
+    <!--End Car with weight-->
+    <!--Begin Car BTN-->
+    <div class="car-title">
+        <span></span>
+        Vận chuyển bằng xe tải các tỉnh bắc trung nam
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="clear10"></div>
+    <!--End Car with weight-->
+    <!--Begin Car BTN-->
+    <div class="car-title">
+        <span></span>
+        Vận chuyển bằng xe tải các tỉnh bắc trung nam
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="hPhoto-thumbs">
+        <a href="~/Content/images/cars/25_170/big_page0010jpg-20140814085645468.jpg" data-lightbox="album">
+            <img src="~/Content/images/cars/25_170/resize_page0010jpg-20140814085645468.jpg" />
+        </a>
+    </div>
+    <div class="clear"></div>
+    <!--End Car with weight-->
+</div>
+<!--End Content-->
 
-    <script type="text/javascript">
-        $(function () {  
-            $('#slider').nivoSlider({
 
-                effect: 'random',                 // Specify sets like: 'fold,fade,sliceDown'
-                slices: 15,                       // For slice animations
-                boxCols: 8,                       // For box animations
-                boxRows: 4,                       // For box animations
-                animSpeed: 500,                   // Slide transition speed
-                pauseTime: 3000,                  // How long each slide will show
-                startSlide: 0,                    // Set starting Slide (0 index)
-                directionNav: true,               // Next & Prev navigation
-                controlNav: true,                 // 1,2,3... navigation
-                controlNavThumbs: false,          // Use thumbnails for Control Nav
-                pauseOnHover: true,               // Stop animation while hovering
-                manualAdvance: false,             // Force manual transitions
-                prevText: 'Prev',                 // Prev directionNav text
-                nextText: 'Next',                 // Next directionNav text
-                randomStart: false,               // Start on a random slide
-                beforeChange: function () { },       // Triggers before a slide transition
-                afterChange: function () { },        // Triggers after a slide transition
-                slideshowEnd: function () { },       // Triggers after all slides have been shown
-                lastSlide: function () { },          // Triggers when last slide is shown
-                afterLoad: function () { }           // Triggers when slider has loaded
-            });
+
+<script type="text/javascript">
+    $(function () {
+        $('#slider').nivoSlider({
+
+            effect: 'random',                 // Specify sets like: 'fold,fade,sliceDown'
+            slices: 15,                       // For slice animations
+            boxCols: 8,                       // For box animations
+            boxRows: 4,                       // For box animations
+            animSpeed: 500,                   // Slide transition speed
+            pauseTime: 3000,                  // How long each slide will show
+            startSlide: 0,                    // Set starting Slide (0 index)
+            directionNav: true,               // Next & Prev navigation
+            controlNav: true,                 // 1,2,3... navigation
+            controlNavThumbs: false,          // Use thumbnails for Control Nav
+            pauseOnHover: true,               // Stop animation while hovering
+            manualAdvance: false,             // Force manual transitions
+            prevText: 'Prev',                 // Prev directionNav text
+            nextText: 'Next',                 // Next directionNav text
+            randomStart: false,               // Start on a random slide
+            beforeChange: function () { },       // Triggers before a slide transition
+            afterChange: function () { },        // Triggers after a slide transition
+            slideshowEnd: function () { },       // Triggers after all slides have been shown
+            lastSlide: function () { },          // Triggers when last slide is shown
+            afterLoad: function () { }           // Triggers when slider has loaded
         });
-        
-    </script> 
+    });
 
-    <script src="~/Content/lightbox/js/lightbox.min.js"></script>
-    <script src="~/Scripts/custom.js"></script>
-    
+</script>
 
-
-</body>
-</html>

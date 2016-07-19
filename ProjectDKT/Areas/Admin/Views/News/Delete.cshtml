@@ -1,0 +1,81 @@
+﻿@model ProjectDKT.Models.News
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typenew.NameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typenew.NameType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -8,9 +8,12 @@ namespace ProjectDKT
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery.nivo.slider.js",
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                        .Include("~/Scripts/jquery.nivo.slider.js")
+                        .Include("~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/custom")
+                        .Include("~/Scripts/custom.js")
+                        .Include("~/Content/lightbox/js/lightbox.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -22,15 +25,16 @@ namespace ProjectDKT
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/MainStyle.css",
                        "~/Content/nivoslider/default.css",
-                    
                       "~/Content/nivoslider/nivo-slider.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css")
+                      .Include("~/Content/lightbox/css/lightbox.min.css"));
         }
     }
 }

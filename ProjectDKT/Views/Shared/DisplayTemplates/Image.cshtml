@@ -1,0 +1,8 @@
+﻿@model string 
+@{
+
+    var filename = Path.GetFileName(Model);
+    var path = ("~/uploads/") + filename;
+}
+
+<img src="@Url.Content(path)" class="img img-thumbnail"/>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ProjectDKT.Models.Banner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+    var filename = Path.GetFileName(@item.UrlImage);
+    var path = ("~/uploads/") + filename;
+    <div class="album "  >
+            @Html.DisplayFor(model => item.UrlImage)
+            <div class="btn-group group">
+                <a href="@Url.Action("Create")" class="btn btn-primary">Create</a>
+                <a href="@Url.Action("Edit",new { id = item.BannerID })" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Details",new { id = item.BannerID})" class="btn btn-primary">Detail</a>
+                <a href="@Url.Action("Delete",new { id = item.BannerID})" class="btn btn-primary">Delete</a>
+            </div> 
+            
+    </div>
+
+
+}
+<div class="album">
+        <div class="placeholder img img-thumbnail"></div>
+        <a href="@Url.Action("Create")" ><span class="glyphicon glyphicon-plus"></span></a>
+</div>
+

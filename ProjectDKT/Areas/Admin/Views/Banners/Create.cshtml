@@ -1,0 +1,47 @@
+﻿@model ProjectDKT.Models.Banner
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+<div class="fix-temp space-content">
+    <h2>Create banner</h2>
+    <hr />
+
+    @using (Html.BeginForm("Create", "Banners", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal col-md-offset-2">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="control-label">Choose a image :</label>
+                </div>
+                <div class="col-md-12">
+                        @Html.EditorFor(m => m.UrlImage)
+                        @Html.ValidationMessageFor(model => model.UrlImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <div class="col-md-12">Do you want active now ?</div>
+                <div class="col-md-12">
+                   @Html.EditorFor(m => m.IsActive)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-md-offset-2">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

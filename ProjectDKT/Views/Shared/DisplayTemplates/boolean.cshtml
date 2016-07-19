@@ -1,0 +1,12 @@
+﻿@model bool?
+@{ 
+
+    var active = (bool)Model ? "active" : "";
+    var noactive = (bool)Model ? "" : "active";
+}
+
+<div class="btn-group">
+    <button class="btn btn-info @active" type="button">Yes</button>
+    <button class="btn btn-info @noactive" type="button">No</button>
+</div>
+

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CauVanChuyenDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrlImage" Type="nchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DateUpload" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatalogName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateAdd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="11" />
+          <Property Name="Email" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="DateSend" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrlResizeImage" Type="nchar" MaxLength="1000" Nullable="false" />
+          <Property Name="UrlBigImage" Type="nchar" MaxLength="1000" />
+          <Property Name="DateUpload" Type="datetime" Nullable="false" />
+          <Property Name="IsLibrary" Type="bit" Nullable="false" />
+          <Property Name="CatalogID" Type="int" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="UrlImage" Type="nchar" MaxLength="1000" />
+          <Property Name="UrlLink" Type="nchar" MaxLength="1000" />
+          <Property Name="DateUpload" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="TypeNewsID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Typenews">
+          <Key>
+            <PropertyRef Name="TypeNewsID" />
+          </Key>
+          <Property Name="TypeNewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameType" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DateAdd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Image_Catalog">
+          <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalog">
+              <PropertyRef Name="CatalogID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="CatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_Typenews">
+          <End Role="Typenews" Type="Self.Typenews" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typenews">
+              <PropertyRef Name="TypeNewsID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="TypeNewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CauVanChuyenDatabaseModelStoreContainer">
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Typenews" EntityType="Self.Typenews" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Image_Catalog" Association="Self.FK_Image_Catalog">
+            <End Role="Catalog" EntitySet="Catalog" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_Typenews" Association="Self.FK_News_Typenews">
+            <End Role="Typenews" EntitySet="Typenews" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CauVanChuyenDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrlImage" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DateUpload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatalogName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateAdd" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Image_Catalog" FromRole="Catalog" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrlResizeImage" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UrlBigImage" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+          <Property Name="DateUpload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsLibrary" Type="Boolean" Nullable="false" />
+          <Property Name="CatalogID" Type="Int32" />
+          <NavigationProperty Name="Catalog" Relationship="Self.FK_Image_Catalog" FromRole="Image" ToRole="Catalog" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlImage" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+          <Property Name="UrlLink" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+          <Property Name="DateUpload" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="TypeNewsID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Typenew" Relationship="Self.FK_News_Typenews" FromRole="News" ToRole="Typenews" />
+        </EntityType>
+        <EntityType Name="Typenew">
+          <Key>
+            <PropertyRef Name="TypeNewsID" />
+          </Key>
+          <Property Name="TypeNewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameType" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateAdd" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="News" Relationship="Self.FK_News_Typenews" FromRole="Typenews" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contents" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateSend" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Image_Catalog">
+          <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalog">
+              <PropertyRef Name="CatalogID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="CatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_Typenews">
+          <End Role="Typenews" Type="Self.Typenew" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typenews">
+              <PropertyRef Name="TypeNewsID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="TypeNewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CauVanChuyenDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Banners" EntityType="Self.Banner" />
+          <EntitySet Name="Catalogs" EntityType="Self.Catalog" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Typenews" EntityType="Self.Typenew" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <AssociationSet Name="FK_Image_Catalog" Association="Self.FK_Image_Catalog">
+            <End Role="Catalog" EntitySet="Catalogs" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_Typenews" Association="Self.FK_News_Typenews">
+            <End Role="Typenews" EntitySet="Typenews" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CauVanChuyenDatabaseModelStoreContainer" CdmEntityContainer="CauVanChuyenDatabaseEntities">
+          <EntitySetMapping Name="Banners">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+                <ScalarProperty Name="UrlImage" ColumnName="UrlImage" />
+                <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalogs">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.Catalog">
+              <MappingFragment StoreEntitySet="Catalog">
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="CatalogName" ColumnName="CatalogName" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="UrlResizeImage" ColumnName="UrlResizeImage" />
+                <ScalarProperty Name="UrlBigImage" ColumnName="UrlBigImage" />
+                <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+                <ScalarProperty Name="IsLibrary" ColumnName="IsLibrary" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="UrlImage" ColumnName="UrlImage" />
+                <ScalarProperty Name="UrlLink" ColumnName="UrlLink" />
+                <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TypeNewsID" ColumnName="TypeNewsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Typenews">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.Typenew">
+              <MappingFragment StoreEntitySet="Typenews">
+                <ScalarProperty Name="TypeNewsID" ColumnName="TypeNewsID" />
+                <ScalarProperty Name="NameType" ColumnName="NameType" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="CauVanChuyenDatabaseModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
